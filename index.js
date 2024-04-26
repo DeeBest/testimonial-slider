@@ -35,3 +35,27 @@ const testimonials = [
     testimony: `Would definitely recommend Asus and will definitely be ordering again.`,
   },
 ];
+
+let image = document.querySelector('img');
+let testimonialParagraph = document.getElementById('testimonial-paragraph');
+let userName = document.getElementById('user-name');
+
+let index = 0;
+
+updateTestimonial();
+
+function updateTestimonial() {
+  const { name, photoUrl, testimony } = testimonials[index];
+
+  image.src = photoUrl;
+  testimonialParagraph.textContent = testimony;
+  userName.textContent = name;
+
+  index++;
+
+  if (index === testimonials.length) {
+    index = 0;
+  }
+
+  setTimeout(() => updateTestimonial(), 10000);
+}
